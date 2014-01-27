@@ -142,22 +142,191 @@ var totalBottleCost;
 var currentRecipeName;
 var totalBottleCostPerML;
 var totalBottleDrops;
+$(function(){
+//Event Listeners for input elements
+	$( "#a_one" ).keyup(function() {
+		fix_one(a_one,table_b);
+	});
+	$(".pcal_tdpg").mouseover(function() {
+	  	pga(aa,ab);
+	});
+	$( "#aa" ).keyup(function() {
+	  	pga_rec(aa,ab,table_b);
+	});
+	$( "#a_mon" ).keyup(function() {
+	  	money_a(a_mon,table_b);
+	});
+	$( "#a_ml" ).keyup(function() {
+	  	mil_a(a_ml,table_b);
+	});
 
-/*file system*/
-var fileDate;
-var conn;
-var dbFile;
-var dbTemplate;
-var db;
-var dbQuery;
-var createStmt = null;
-var insertStmt = null;
-var insertStmt2 = null;
-var selectStmt = null;
+	$( "a_two" ).keyup(function() {
+	  	chk_nic(a_two,amount_nic,nic_ha,nic_ha_l,nic_ha_r,nic_hb);
+	  	fix_two(a_two,table_b);
+	});
+	$(".apcal_tdA").mouseover(function() {
+	  	pgb(ba,bb,a,pg_w_ad);
+	});
+	$("#ba").keyup(function() {
+	  	pgb_rec(ba,bb,a,pg_w_ad,table_b);
+	});
+	$("#b_mon").keyup(function() {
+	  	money_b(b_mon,table_b);
+	});
+	$("#b_ml").keyup(function() {
+	  	mil_b(b_ml,table_b)
+	});
 
-var insert1Complete = false;
-var insert2Complete = false
+	$("#a_three").keyup(function() {
+	  chk_amount(a_three,amount_make,inonea,intwoa,inonear,inoneal);
+	  fix_three(a_three,table_b);
+	});
+	$(".bpcal_tdA").mouseover(function() {
+	  	pgb(ba,bb,a,pg_w_ad);
+	});
+	$("#c_mon").keyup(function() {
+	  	money_c(c_mon,table_b);
+	});
+	$("#c_ml").keyup(function() {
+	  	mil_c(c_ml,table_b)
+	});
 
+	$("#fl_a").keyup(function() {
+	  	add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a);
+	  	flavor_a(fl_a,fl_az,fl_azx,table_b);
+	});
+	$("#a").keyup(function() {
+	 	pgb(ba,bb,a,pg_w_ad);
+	  	add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a);
+	});
+	$("#d_mon").keyup(function() {
+	  	money_d(d_mon,table_b);
+	});
+	$("#d_ml").keyup(function() {
+	  	mil_d(d_ml,table_b);
+	});
+	$("#fl_b").keyup(function() {
+	  	flavor_b(fl_b,fl_bz,table_b);
+	});
+	$("#b").keyup(function() {
+	  	add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a);
+	});
+
+	$(".pcal_tdpg").mouseover(function() {
+	  	pgc(ca,cb);
+	});
+	$("#ca").keyup(function() {
+	  	pgc_rec(ca,cb,table_b);
+	});
+	$("#e_mon").keyup(function() {
+	  	money_e(e_mon,table_b);
+	});
+	$("#e_ml").keyup(function() {
+	  	mil_e(e_ml,table_b);
+	});
+	$("#fl_c").keyup(function() {
+	  	flavor_c(fl_c,fl_cz,table_b);
+	});
+	$("#c").keyup(function() {
+	  add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a);
+	});
+	$(".tbcal_tdpg").mouseover(function() {
+	  	pgd(da,db);
+	});
+	$("#da").keyup(function() {
+	  	pgd_rec(da,db,table_b);
+	});
+	$("#f_mon").keyup(function() {
+	  	money_f(f_mon,table_b);
+	});
+	$("#f_ml").keyup(function() {
+	  	mil_f(f_ml,table_b);
+	});
+	$("#fl_d").keyup(function() {
+	  	flavor_d(fl_d,fl_dz,table_b)
+	});
+	$("#d").keyup(function() {
+	  	add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a);
+	});
+	$(".pcal_tdpg").mouseover(function() {
+	  	pge(ea,eb);
+	});
+	$("#g_mon").keyup(function() {
+	 	money_g(g_mon,table_b);
+	});
+	$("#g_ml").keyup(function() {
+	 	mil_g(g_ml,table_b);
+	});
+	$("#fl_e").keyup(function() {
+	 	flavor_e(fl_e,fl_ez,table_b);
+	});
+	$("#e").keyup(function() {
+	 	add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a);
+	});
+	$("#tbcal_tdpg").mouseover(function() {
+	 	pgf(fa,fb);
+	});
+	$("#fa").keyup(function() {
+	 	pgfx_rec(fa,fb,table_b);
+	});
+	$("#h_mon").keyup(function() {
+	 	money_h(h_mon,table_b);
+	});
+	$("#h_mil").keyup(function() {
+	 	mil_h(h_ml,table_b);
+	});
+	$("#fl_f").keyup(function() {
+		flavor_f(fl_f,fl_fz,table_b);
+	});
+	$("#f").keyup(function() {
+	 	add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a);
+	});
+	$(".pcal_tdpg").mouseover(function() {
+	 	pgg(ga,gb);
+	});
+	$("#ga").keyup(function() {
+	 	pgg_rec(ga,gb,table_b);
+	});
+	$("#i_mon").keyup(function() {
+	 	money_i(i_mon,table_b);
+	});
+	$("#i_ml").keyup(function() {
+	 	mil_i(i_ml,table_b);
+	});
+	$("#fl_g").keyup(function() {
+	 	flavor_g(fl_g,fl_gz,table_b);
+	});
+	$("#g").keyup(function() {
+	 	add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a);
+	});
+	$(".tbcal_tdpg").mouseover(function() {
+	 	pgh(ha,hb);
+	});
+	$("#ha").keyup(function() {
+	 	pgh_rec(ha,hb,table_b);
+	});
+	$("#j_mon").keyup(function() {
+	 	money_j(j_mon,table_b);
+	});
+	$("#j_ml").keyup(function() {
+	 	mil_j(j_ml,table_b);
+	});
+	$("#drp").keyup(function() {
+	 	drops(drp,table_b);
+	});
+	$("#note").keyup(function() {
+	 	notes(note,table_b);
+	});
+	$("#rec").keyup(function() {
+	 	rec_x(rec,table_b);
+	});
+
+
+	$("#totSubButt").click( function(event) {
+		
+	 	 doFormMath();
+	});
+});
 function flavor_a(fl_a,fl_az,fl_azx,table_b)
 {var y=document.getElementById("fl_a").value;if(y.match(myExp))
 {var z=y;}else{var z="";}
@@ -477,31 +646,31 @@ function doFormMath(){
 	desiredVG=document.getElementById("bb").innerHTML;
 	desiredVG=Number(desiredVG);
 	if(desiredVG < 0){desiredVG=0};
-	air.trace('USER ENTERED desiredPG ='+desiredPG);
-	air.trace('USER ENTERED desiredVG ='+desiredVG);
+	//console.log('USER ENTERED desiredPG ='+desiredPG);
+	//console.log('USER ENTERED desiredVG ='+desiredVG);
 	nicotinePercentPG=document.getElementById("aa").value;
 	nicotinePercentVG=document.getElementById("ab").innerHTML;
 	nicotinePercentVG=nicotinePercentVG.replace(/[^a-zA-Z 0-9]+/g,'');
 	nicotinePercentVG=Number(nicotinePercentVG);
-	air.trace('USER ENTERED Nicotine PG PERCENTAGE ='+nicotinePercentPG);
-	air.trace('USER ENTERED Nicotine VG PERCENTAGE ='+nicotinePercentVG);
+	//console.log('USER ENTERED Nicotine PG PERCENTAGE ='+nicotinePercentPG);
+	//console.log('USER ENTERED Nicotine VG PERCENTAGE ='+nicotinePercentVG);
 	currentRecipeName=document.getElementById("rec").value;
 	
 	
 
 	
-	air.trace('BASE NICOTINE '+baseNic);
-	air.trace('TARGET NICOTINE '+targetNic);
-	air.trace('TOTAL AMOUNT TO MAKE '+totalAmount);
+	//console.log('BASE NICOTINE '+baseNic);
+	//console.log('TARGET NICOTINE '+targetNic);
+	//console.log('TOTAL AMOUNT TO MAKE '+totalAmount);
 	
-	air.trace('*************************************');
+	//console.log('*************************************');
 	/*Nicotine*/
 	nicotineLiquidPercentage = (targetNic/baseNic) * 100 ;
 	$("#nicLiquidPerc").html( nicotineLiquidPercentage+' % <span class="div">|</span>');
-	air.trace('PERCENTAGE NICOTINE TO USE = '+nicotineLiquidPercentage)+'%';
+	//console.log('PERCENTAGE NICOTINE TO USE = '+nicotineLiquidPercentage)+'%';
 	nicotineLiquid = Math.round(((targetNic/baseNic) * totalAmount) * 100) / 100; 
 	$("#nicLiquidReq").html( nicotineLiquid+' <span class="fml"> ml</span>');
-	air.trace('TOTAL NICOTINE TO USE '+nicotineLiquid);
+	//console.log('TOTAL NICOTINE TO USE '+nicotineLiquid);
 	if(nicotinePercentPG==0){
 		nicotineToSubtractPG = 0;
 	}else{
@@ -512,8 +681,8 @@ function doFormMath(){
 	}else{
 		nicotineToSubtractVG= (nicotineLiquidPercentage/nicotinePercentVG)*100 
 	}
-	air.trace('Nicotine to subtract from PG percentage= '+nicotineToSubtractPG+'%');
-	air.trace('Nicotine to subtract from VG percentage= '+nicotineToSubtractVG+'%');
+	//console.log('Nicotine to subtract from PG percentage= '+nicotineToSubtractPG+'%');
+	//console.log('Nicotine to subtract from VG percentage= '+nicotineToSubtractVG+'%');
 	
 
 	/*CONVERT TO DROPS*/
@@ -536,20 +705,20 @@ totalVG;*/
 	
 	
 	/*GET FLAVOR 1*/
-	air.trace('*************************************');
+	//console.log('*************************************');
 	flav1Perc=document.getElementById("b").value;
-	air.trace('Flavor 1 USER Defined flavor percentage ='+flav1Perc+'%');
+	//console.log('Flavor 1 USER Defined flavor percentage ='+flav1Perc+'%');
 	$("#totalFlav1Perc").html( flav1Perc+' % <span class="div">|</span>');
 	flav1pgratio=document.getElementById("ca").value;
 	flav1pgratioOrig = flav1pgratio;
-	air.trace('FLAVOR1 PG RATIO perecntage = '+flav1pgratio+'%');
+	//console.log('FLAVOR1 PG RATIO perecntage = '+flav1pgratio+'%');
 	flav1vgratio=document.getElementById("cb").innerHTML;
 	flav1vgratio=flav1vgratio.replace(/[^a-zA-Z 0-9]+/g,'');
 	flav1vgratio=Number(flav1vgratio);
 	flav1vgratioOrig=flav1vgratio;
-	air.trace('FLAVOR1 VG RATIO perecntage = '+flav1vgratio+'%');
+	//console.log('FLAVOR1 VG RATIO perecntage = '+flav1vgratio+'%');
 	if(flav1Perc==0){
-		air.trace('USE ZERO OF FLAVOR');
+		//console.log('USE ZERO OF FLAVOR');
 		flav1pgratio = 0;
 		flav1vgratio = 0;
 	}else{
@@ -557,16 +726,16 @@ totalVG;*/
 		flav1vgratio= (flav1Perc*(flav1vgratio/100));
 	}
 	
-	air.trace('FLAVOR 1 to subtract from PG percentage= '+flav1pgratio+'%');
-	air.trace('FLAVOR 1 to subtract from VG percentage= '+flav1vgratio+'%');
+	//console.log('FLAVOR 1 to subtract from PG percentage= '+flav1pgratio+'%');
+	//console.log('FLAVOR 1 to subtract from VG percentage= '+flav1vgratio+'%');
 	
 	totalflav1 = Math.round(((flav1Perc/100)*totalAmount)* 1000)/1000;
-	air.trace('Flavor 1 ml ='+totalflav1);
+	//console.log('Flavor 1 ml ='+totalflav1);
 	
 	flav1pgml= ((flav1pgratio/100)*totalflav1);//*flav1pgratio;
 	flav1vgml= ((flav1vgratio/100)*totalflav1);//*flav1vgratio;
-	air.trace('Flavor 1 PG ml to subtract ='+flav1pgml);
-	air.trace('Flavor 1 VG ml to subtract ='+flav1vgml);
+	//console.log('Flavor 1 PG ml to subtract ='+flav1pgml);
+	//console.log('Flavor 1 VG ml to subtract ='+flav1vgml);
 	totalAmountLeft = totalAmountLeft - totalflav1;
 	//subtractFromPg =  (totalflav1/100)*totalAmount;
 	
@@ -575,9 +744,9 @@ totalVG;*/
 	$("#totalFlav1Drop").html((totalflav1*20)+'<span class="fdrp"> drp</span>');
 	totalBottleDrops = totalBottleDrops + (totalflav1*20);
 	/*GET FLAVOR 2*/
-	air.trace('*************************************');
+	//console.log('*************************************');
 	flav2Perc=document.getElementById("c").value;
-	air.trace('Flavor USER Defined flavor percentage ='+flav2Perc+'%');
+	//console.log('Flavor USER Defined flavor percentage ='+flav2Perc+'%');
 	$("#totalFlav2Perc").html( flav2Perc+' % <span class="div">|</span>');
 	flav2pgratio=document.getElementById("da").value;
 	flav2pgratioOrig = flav2pgratio;
@@ -586,7 +755,7 @@ totalVG;*/
 	flav2vgratio=Number(flav2vgratio);
 	flav2vgratioOrig = flav2vgratio;
 	if(flav2Perc==0){
-		air.trace('USE ZERO OF FLAVOR');
+		//console.log('USE ZERO OF FLAVOR');
 		flav2pgratio = 0;
 		flav2vgratio = 0;
 	}else{
@@ -594,16 +763,16 @@ totalVG;*/
 		flav2vgratio= (flav2Perc*(flav2vgratio/100));
 	}
 	
-	air.trace('Flavor 2 to subtract from PG percentage= '+flav2pgratio+'%');
-	air.trace('Flavor 2 to subtract from VG percentage= '+flav2vgratio+'%');
+	//console.log('Flavor 2 to subtract from PG percentage= '+flav2pgratio+'%');
+	//console.log('Flavor 2 to subtract from VG percentage= '+flav2vgratio+'%');
 	
 	totalflav2 = Math.round(((flav2Perc/100)*totalAmount)* 1000)/1000;
-	air.trace('Flavor 2 ml ='+totalflav2);
+	//console.log('Flavor 2 ml ='+totalflav2);
 	
 	flav2pgml= ((flav2pgratioOrig/100)*totalflav2);//*flav2pgratio;
 	flav2vgml= ((flav2vgratioOrig/100)*totalflav2);//*flav2vgratio;
-	air.trace('Flavor 2 PG ml to subtract ='+flav2pgml);
-	air.trace('Flavor 2 VG ml to subtract ='+flav2vgml);
+	//console.log('Flavor 2 PG ml to subtract ='+flav2pgml);
+	//console.log('Flavor 2 VG ml to subtract ='+flav2vgml);
 	totalAmountLeft = totalAmountLeft - totalflav2;
 	//subtractFromPg =  (totalflav1/100)*totalAmount;
 	
@@ -612,9 +781,9 @@ totalVG;*/
 	$("#totalFlav2Drop").html((totalflav2*20)+'<span class="fdrp"> drp</span>');
 	totalBottleDrops = totalBottleDrops + (totalflav2*20);
 	/*GET FLAVOR 3*/
-	air.trace('*************************************');
+	//console.log('*************************************');
 	flav3Perc=document.getElementById("d").value;
-	air.trace('Flavor USER Defined flavor percentage ='+flav3Perc+'%');
+	//console.log('Flavor USER Defined flavor percentage ='+flav3Perc+'%');
 	$("#totalFlav3Perc").html( flav3Perc+' % <span class="div">|</span>');
 	flav3pgratio=document.getElementById("ea").value;
 	flav3pgratioOrig = flav3pgratio;
@@ -623,7 +792,7 @@ totalVG;*/
 	flav3vgratio=Number(flav3vgratio);
 	flav3vgratioOrig = flav3vgratio;
 	if(flav3Perc==0){
-		air.trace('USE ZERO OF FLAVOR');
+		//console.log('USE ZERO OF FLAVOR');
 		flav3pgratio = 0;
 		flav3vgratio = 0;
 	}else{
@@ -631,24 +800,24 @@ totalVG;*/
 		flav3vgratio= (flav3Perc*(flav3vgratio/100));
 	}
 	
-	air.trace('Flavor 3 to subtract from PG percentage= '+flav3pgratio+'%');
-	air.trace('Flavor 3 to subtract from VG percentage= '+flav3vgratio+'%');
+	//console.log('Flavor 3 to subtract from PG percentage= '+flav3pgratio+'%');
+	//console.log('Flavor 3 to subtract from VG percentage= '+flav3vgratio+'%');
 	
 	totalflav3 = Math.round(((flav3Perc/100)*totalAmount)* 1000)/1000;
-	air.trace('Flavor 3 ml ='+totalflav3);
+	//console.log('Flavor 3 ml ='+totalflav3);
 	
 	flav3pgml= ((flav3pgratioOrig/100)*totalflav3);//*flav3pgratio;
 	flav3vgml= ((flav3vgratioOrig/100)*totalflav3);//*flav3vgratio;
-	air.trace('Flavor 3 PG ml to subtract ='+flav3pgml);
-	air.trace('Flavor 3 VG ml to subtract ='+flav3vgml);
+	//console.log('Flavor 3 PG ml to subtract ='+flav3pgml);
+	//console.log('Flavor 3 VG ml to subtract ='+flav3vgml);
 	totalAmountLeft = totalAmountLeft - totalflav3;
 	$("#totalFlav3Req").html( totalflav3+' <span class="fml"> ml</span>');
 	$("#totalFlav3Drop").html((totalflav3*20)+'<span class="fdrp"> drp</span>');
 	totalBottleDrops = totalBottleDrops + (totalflav3*20);
 	/*GET FLAVOR 4*/
-	air.trace('*************************************');
+	//console.log('*************************************');
 	flav4Perc=document.getElementById("e").value;
-	air.trace('Flavor USER Defined flavor percentage ='+flav4Perc+'%');
+	//console.log('Flavor USER Defined flavor percentage ='+flav4Perc+'%');
 	$("#totalFlav4Perc").html( flav4Perc+' % <span class="div">|</span>');
 	flav4pgratio=document.getElementById("fa").value;
 	flav4pgratioOrig = flav4pgratio;
@@ -657,7 +826,7 @@ totalVG;*/
 	flav4vgratio=Number(flav4vgratio);
 	flav4vgratioOrig = flav4vgratio;
 	if(flav4Perc==0){
-		air.trace('USE ZERO OF FLAVOR');
+		//console.log('USE ZERO OF FLAVOR');
 		flav4pgratio = 0;
 		flav4vgratio = 0;
 	}else{
@@ -665,24 +834,24 @@ totalVG;*/
 		flav4vgratio= (flav4Perc*(flav4vgratio/100));
 	}
 	
-	air.trace('Flavor 4 to subtract from PG percentage= '+flav4pgratio+'%');
-	air.trace('Flavor 4 to subtract from VG percentage= '+flav4vgratio+'%');
+	//console.log('Flavor 4 to subtract from PG percentage= '+flav4pgratio+'%');
+	//console.log('Flavor 4 to subtract from VG percentage= '+flav4vgratio+'%');
 	
 	totalflav4 = Math.round(((flav4Perc/100)*totalAmount)* 1000)/1000;
-	air.trace('Flavor 4 ml ='+totalflav4);
+	//console.log('Flavor 4 ml ='+totalflav4);
 	
 	flav4pgml= ((flav4pgratioOrig/100)*totalflav4);//*flav4pgratio;
 	flav4vgml= ((flav4vgratioOrig/100)*totalflav4);//*flav4vgratio;
-	air.trace('Flavor 4 PG ml to subtract ='+flav4pgml);
-	air.trace('Flavor 4 VG ml to subtract ='+flav4vgml);
+	//console.log('Flavor 4 PG ml to subtract ='+flav4pgml);
+	//console.log('Flavor 4 VG ml to subtract ='+flav4vgml);
 	totalAmountLeft = totalAmountLeft - totalflav4;
 	$("#totalFlav4Req").html( totalflav4+' <span class="fml"> ml</span>');
 	$("#totalFlav4Drop").html((totalflav4*20)+'<span class="fdrp"> drp</span>');
 	totalBottleDrops = totalBottleDrops + (totalflav4*20);
 	/*GET FLAVOR 5*/
-	air.trace('*************************************');
+	//console.log('*************************************');
 	flav5Perc=document.getElementById("f").value;
-	air.trace('Flavor USER Defined flavor percentage ='+flav5Perc+'%');
+	//console.log('Flavor USER Defined flavor percentage ='+flav5Perc+'%');
 	$("#totalFlav5Perc").html( flav5Perc+' % <span class="div">|</span>');
 	flav5pgratio=document.getElementById("ga").value;
 	flav5pgratioOrig=flav5pgratio;
@@ -691,7 +860,7 @@ totalVG;*/
 	flav5vgratio=Number(flav5vgratio);
 	flav5vgratioOrig=flav5vgratio;
 	if(flav5Perc==0){
-		air.trace('USE ZERO OF FLAVOR');
+		//console.log('USE ZERO OF FLAVOR');
 		flav5pgratio = 0;
 		flav5vgratio = 0;
 	}else{
@@ -699,24 +868,24 @@ totalVG;*/
 		flav5vgratio= (flav5Perc*(flav5vgratio/100));
 	}
 	
-	air.trace('Flavor 5 to subtract from PG percentage= '+flav5pgratio+'%');
-	air.trace('Flavor 5 to subtract from VG percentage= '+flav5vgratio+'%');
+	//console.log('Flavor 5 to subtract from PG percentage= '+flav5pgratio+'%');
+	//console.log('Flavor 5 to subtract from VG percentage= '+flav5vgratio+'%');
 	
 	totalflav5 = Math.round(((flav5Perc/100)*totalAmount)* 1000)/1000;
-	air.trace('Flavor 5 ml ='+totalflav5);
+	//console.log('Flavor 5 ml ='+totalflav5);
 	
 	flav5pgml= ((flav5pgratioOrig/100)*totalflav5);//*flav5pgratio;
 	flav5vgml= ((flav5vgratioOrig/100)*totalflav5);//*flav5vgratio;
-	air.trace('Flavor 5 PG ml to subtract ='+flav5pgml);
-	air.trace('Flavor 5 VG ml to subtract ='+flav5vgml);
+	//console.log('Flavor 5 PG ml to subtract ='+flav5pgml);
+	//console.log('Flavor 5 VG ml to subtract ='+flav5vgml);
 	totalAmountLeft = totalAmountLeft - totalflav5;
 	$("#totalFlav5Req").html( totalflav5+' <span class="fml"> ml</span>');
 	$("#totalFlav5Drop").html((totalflav5*20)+'<span class="fdrp"> drp</span>');
 	totalBottleDrops = totalBottleDrops + (totalflav5*20);
 	/*GET FLAVOR 6*/
-	air.trace('*************************************');
+	//console.log('*************************************');
 	flav6Perc=document.getElementById("g").value;
-	air.trace('Flavor USER Defined flavor percentage ='+flav6Perc+'%');
+	//console.log('Flavor USER Defined flavor percentage ='+flav6Perc+'%');
 	$("#totalFlav6Perc").html( flav6Perc+' % <span class="div">|</span>');
 	flav6pgratio=document.getElementById("ha").value;
 	flav6pgratioOrig=flav6pgratio;
@@ -725,7 +894,7 @@ totalVG;*/
 	flav6vgratio=Number(flav6vgratio);
 	flav6vgratioOrig = flav6vgratio;
 	if(flav6Perc==0){
-		air.trace('USE ZERO OF FLAVOR');
+		//console.log('USE ZERO OF FLAVOR');
 		flav6pgratio = 0;
 		flav6vgratio = 0;
 	}else{
@@ -733,44 +902,44 @@ totalVG;*/
 		flav6vgratio= (flav6Perc*(flav6vgratio/100));
 	}
 	
-	air.trace('Flavor 6 to subtract from PG percentage= '+flav6pgratio+'%');
-	air.trace('Flavor 6 to subtract from VG percentage= '+flav6vgratio+'%');
+	//console.log('Flavor 6 to subtract from PG percentage= '+flav6pgratio+'%');
+	//console.log('Flavor 6 to subtract from VG percentage= '+flav6vgratio+'%');
 	
 	totalflav6 = Math.round(((flav6Perc/100)*totalAmount)* 1000)/1000;
-	air.trace('Flavor 6 ml ='+totalflav6);
+	//console.log('Flavor 6 ml ='+totalflav6);
 	
 	flav6pgml= ((flav6pgratioOrig/100)*totalflav6);//*flav6pgratio;
 	flav6vgml= ((flav6vgratioOrig/100)*totalflav6);//*flav6vgratio;
-	air.trace('Flavor 6 PG ml to subtract ='+flav6pgml);
-	air.trace('Flavor 6 VG ml to subtract ='+flav6vgml);
+	//console.log('Flavor 6 PG ml to subtract ='+flav6pgml);
+	//console.log('Flavor 6 VG ml to subtract ='+flav6vgml);
 	totalAmountLeft = totalAmountLeft - totalflav6;
 	$("#totalFlav6Req").html( totalflav6+' <span class="fml"> ml</span>');
 	$("#totalFlav6Drop").html((totalflav6*20)+'<span class="fdrp"> drp</span>');
 	totalBottleDrops = totalBottleDrops + (totalflav6*20);
 	//totalWater=totalWater*.50;
-	air.trace('*************************************');
-	air.trace('Do PG VG CAl');		
+	//console.log('*************************************');
+	//console.log('Do PG VG CAl');		
 	
 	subtractFromPg = flav1pgml+flav2pgml+flav3pgml+flav4pgml+flav5pgml+flav6pgml;
 	subtractFromVg = flav1vgml+flav2vgml+flav3vgml+flav4vgml+flav5vgml+flav6vgml;
-	air.trace('Subtract from PG amount= '+subtractFromPg);
-	air.trace('Subtract from VG amount= '+subtractFromVg);
+	//console.log('Subtract from PG amount= '+subtractFromPg);
+	//console.log('Subtract from VG amount= '+subtractFromVg);
 
 	subtractFromPgPerc = flav1pgratio+flav2pgratio+flav3pgratio+flav4pgratio+flav5pgratio+flav6pgratio;
 	subtractFromVgPerc = flav1vgratio+flav2vgratio+flav3vgratio+flav4vgratio+flav5vgratio+flav6vgratio;
-	air.trace('FLAVOR PERCENTAGE Subtract from PG Percentage= '+subtractFromPgPerc+'%');
-	air.trace('FLAVOR PERCENTAGE Subtract from VG Percentage= '+subtractFromVgPerc+'%');
+	//console.log('FLAVOR PERCENTAGE Subtract from PG Percentage= '+subtractFromPgPerc+'%');
+	//console.log('FLAVOR PERCENTAGE Subtract from VG Percentage= '+subtractFromVgPerc+'%');
 	
 	initialPG=document.getElementById("ba").value;
 	initialVG = Number(document.getElementById("bb").innerHTML);
-	air.trace('INITIAL PG Percentage= '+initialPG);
-	air.trace('INITIAL VG Percentage= '+initialVG);
+	//console.log('INITIAL PG Percentage= '+initialPG);
+	//console.log('INITIAL VG Percentage= '+initialVG);
 	
 	/*GET WATER NEEDED*/
-	air.trace('*************************************');
+	//console.log('*************************************');
 	totalWater = Math.round(((waterPerc/100)*totalAmount) * 100) / 100;
 	$("#totalWaterPerc").html( waterPerc+' % <span class="div">|</span>');
-	air.trace('Water Percentage ='+waterPerc);
+	//console.log('Water Percentage ='+waterPerc);
 	totalAmountLeft = totalAmountLeft - totalWater;
 	$("#totalWaterReq").html( totalWater+'<span class="fml"> ml</span>');
 	$("#totalWaterDrop").html( (totalWater*20)+'<span class="sdrp"> drp</span>');
@@ -783,12 +952,12 @@ totalVG;*/
 		if(desiredVG==0){
 			totalWaterPG=waterPerc;//(desiredPG/100);
 		}else{totalWaterPG=waterPerc* .50;}
-		air.trace('water percentagePG= '+totalWaterPG);
-		air.trace('TOTAL WATER TO SUBTRACT FROM PG percentage ='+totalWaterPG+'% and TOTAL NICOTINE TO SUBTRACT percentage = '+nicotineToSubtractPG+'%');
+		//console.log('water percentagePG= '+totalWaterPG);
+		//console.log('TOTAL WATER TO SUBTRACT FROM PG percentage ='+totalWaterPG+'% and TOTAL NICOTINE TO SUBTRACT percentage = '+nicotineToSubtractPG+'%');
 		initialPG = initialPG - totalWaterPG - nicotineToSubtractPG - subtractFromPgPerc; 		
-		air.trace('PG Percentage AFTER WATER & NICOTINE REMOVED= '+ initialPG+'%' );
+		//console.log('PG Percentage AFTER WATER & NICOTINE REMOVED= '+ initialPG+'%' );
 		totalPG = (initialPG/100)* totalAmount;
-		air.trace('PG total in ml= '+totalPG+'ml');
+		//console.log('PG total in ml= '+totalPG+'ml');
 	}
 	if(desiredVG==0){
 		totalWaterVG=0;
@@ -798,12 +967,12 @@ totalVG;*/
 		if(desiredPG==0){
 			totalWaterVG=waterPerc;//(desiredPG/100);
 		}else{totalWaterVG=waterPerc* .50;}
-		air.trace('water percentageVG= '+totalWaterVG);
-		air.trace('TOTAL WATER TO SUBTRACT FROM VG percentage ='+totalWaterVG+'% and TOTAL NICOTINE TO SUBTRACT percentage = '+nicotineToSubtractVG+'%');
+		//console.log('water percentageVG= '+totalWaterVG);
+		//console.log('TOTAL WATER TO SUBTRACT FROM VG percentage ='+totalWaterVG+'% and TOTAL NICOTINE TO SUBTRACT percentage = '+nicotineToSubtractVG+'%');
 		initialVG = initialVG - totalWaterVG -nicotineToSubtractVG - subtractFromVgPerc; 
-		air.trace('VG Percentage AFTER WATER & NICOTINE REMOVED= '+ initialVG+'%' );
+		//console.log('VG Percentage AFTER WATER & NICOTINE REMOVED= '+ initialVG+'%' );
 		totalVG = (initialVG/100)* totalAmount;
-		air.trace('VG total in ml= '+totalVG+'ml');
+		//console.log('VG total in ml= '+totalVG+'ml');
 	}
 	$("#totalPGPut").html( Math.round(totalPG*10000)/10000+' <span class="fml"> ml</span>');
 	// $("#totalPGPut").html( totalPG+' <span class="sml"> ml</span>');
@@ -816,8 +985,8 @@ totalVG;*/
 	$("#totalVGPercPut").html( initialVG+'% <span class="div">|</span>');
 	$("#addedDropTotal").html( nicotineLiquidDrops+(Math.round((totalPG*20)*100)/100)+(Math.round((totalVG*20)*100)/100)+(totalWater*20)+(totalflav6*20)+(totalflav5*20)+(totalflav4*20)+(totalflav3*20)+(totalflav2*20)+(totalflav1*20)+' drp');
 	
-	air.trace('INITIAL PG VOLUME '+initialPG);
-	air.trace('INITIAL VG VOLUME '+initialVG);
+	//console.log('INITIAL PG VOLUME '+initialPG);
+	//console.log('INITIAL VG VOLUME '+initialVG);
 	addedTotalsOfML = nicotineLiquid + (Math.round(totalPG*10000)/10000) + (Math.round(totalVG*10000)/10000) + totalWater + totalflav1 + totalflav2 + totalflav3 + totalflav4 + totalflav5 + totalflav6;
 	$("#addedMlTotal").html( Math.round(addedTotalsOfML)+'ml');
 	
@@ -857,10 +1026,10 @@ totalVG;*/
 		flav1CostPerMl = 0;
 		flav1BottleCost = 0;
 	}else{
-		air.trace('Flavor 1 Money = '+flav1Mon);
-		air.trace('Flavor 1 Ml = '+flav1Ml);
+		//console.log('Flavor 1 Money = '+flav1Mon);
+		//console.log('Flavor 1 Ml = '+flav1Ml);
 		flav1CostPerMl = flav1Mon/flav1Ml;
-		air.trace('Flavor 1 cost per ML ='+flav1CostPerMl);
+		//console.log('Flavor 1 cost per ML ='+flav1CostPerMl);
 		flav1BottleCost = flav1CostPerMl * totalflav1;
 		totalBottleCost = totalBottleCost + flav1BottleCost;
 	}
@@ -929,15 +1098,15 @@ totalVG;*/
 	$("#totalCPML").html('$ '+Math.round(totalBottleCostPerML*100)/100);
 }
 
-function CreateMenus() {
-  var menu = air.ui.Menu.createFromXML("recipieMenu.xml");
-  air.ui.Menu.setAsMenu(menu);
-}
+//function CreateMenus() {
+  //var menu = air.ui.Menu.createFromXML("recipieMenu.xml");
+  //air.ui.Menu.setAsMenu(menu);
+//}
 
-			fileDate = new Date();
+			//fileDate = new Date();
 			//var statustext.innerText=null;
 //DB WORK
-
+/*
 			var conn = null;
 			var createStmt = null;
 			var insertStmt = null;
@@ -954,7 +1123,7 @@ function CreateMenus() {
 				conn.addEventListener(air.SQLEvent.OPEN, openSuccess);
 				conn.addEventListener(air.SQLErrorEvent.ERROR, openFailure);
 				
-				air.trace("Creating and opening database");
+				//console.log("Creating and opening database");
 				var folder = air.File.applicationStorageDirectory;
 				var dbFile = air.File.applicationStorageDirectory.resolvePath("recipies.db");
 				conn.openAsync(dbFile);
@@ -974,16 +1143,16 @@ function CreateMenus() {
 				conn.removeEventListener(air.SQLEvent.OPEN, openSuccess);
 				conn.removeEventListener(air.SQLErrorEvent.ERROR, openFailure);
 				
-				air.trace("Error opening database");
+				//console.log("Error opening database");
 
-				air.trace("event.error.code: "+event.error.code);
-				air.trace("event.error.message:" + event.error.message);
+				//console.log("event.error.code: "+event.error.code);
+				//console.log("event.error.message:" + event.error.message);
 			}
 			
 			
 			function createTable()
 			{
-				air.trace("Creating table");
+				//console.log("Creating table");
 				
 				createStmt = new air.SQLStatement();
 				
@@ -1009,20 +1178,20 @@ function CreateMenus() {
 
 			function createError(event)
 			{
-				air.trace("Error creating table");
+				//console.log("Error creating table");
 				
 				createStmt.removeEventListener(air.SQLEvent.RESULT, createResult);
 				createStmt.removeEventListener(air.SQLErrorEvent.ERROR, createError);
 				
-				air.trace("CREATE TABLE error: "+ event.error);
-				air.trace("event.error.code: "+ event.error.code);
-				air.trace("event.error.message: "+ event.error.message);
+				//console.log("CREATE TABLE error: "+ event.error);
+				//console.log("event.error.code: "+ event.error.code);
+				//console.log("event.error.message: "+ event.error.message);
 			}
 			
 			
 			function saveRecipie()
 			{
-				air.trace("Adding data to table");
+				//console.log("Adding data to table");
 				
 				insertStmt = new air.SQLStatement();
 				insertStmt.sqlConnection = conn;
@@ -1056,7 +1225,7 @@ function CreateMenus() {
 				
 				if (insert1Complete && insert2Complete)
 				{
-					air.trace("Ready to load data");
+					//console.log("Ready to load data");
 				
 				//	getData();
 				}
@@ -1064,19 +1233,19 @@ function CreateMenus() {
 			
 			function insertError(event)
 			{
-				air.trace("Error inserting data");
+				//console.log("Error inserting data");
 				
 				insertStmt.removeEventListener(air.SQLEvent.RESULT, insertResult);
 				insertStmt.removeEventListener(air.SQLErrorEvent.ERROR, insertError);
 				
-				air.trace("INSERT error: "+ event.error);
-				air.trace("event.error.code: "+ event.error.code);
-				air.trace("event.error.message: "+ event.error.message);
+				//console.log("INSERT error: "+ event.error);
+				//console.log("event.error.code: "+ event.error.code);
+				//console.log("event.error.message: "+ event.error.message);
 			}
 			function loadNewRecipieWindow(recipieId){
 				selectStmt = new air.SQLStatement();
 				selectStmt.sqlConnection = conn;
-				air.trace('RECIPIE ID ='+recipieId);
+				//console.log('RECIPIE ID ='+recipieId);
 				var sql = "SELECT * FROM listings WHERE recipieNumber ="+recipieId+"";
 				selectStmt.text = sql;
 				
@@ -1088,7 +1257,7 @@ function CreateMenus() {
 			
 			function selectResultRecipie(event)
 			{
-				air.trace("Data loaded");
+				//console.log("Data loaded");
 				
 				selectStmt.removeEventListener(air.SQLEvent.RESULT, selectResult);
 				selectStmt.removeEventListener(air.SQLErrorEvent.ERROR, selectError);
@@ -1119,7 +1288,7 @@ function CreateMenus() {
 					{
 						//if (col == "recipieName"){
 							cell = document.createElement("td");
-							air.trace('i ='+i);
+							//console.log('i ='+i);
 							if (i%2==0) { 
 								cell.setAttribute('style', 'font-size:11px;text-align:right;padding:2px 6px;line-height:15px;background:#e6e6fa;');
 							} else { 
@@ -1138,20 +1307,20 @@ function CreateMenus() {
 			
 			function selectErrorRecipie(event)
 			{
-				air.trace("Error loading data");
+				//console.log("Error loading data");
 				
 				selectStmt.removeEventListener(air.SQLEvent.RESULT, selectResult);
 				selectStmt.removeEventListener(air.SQLErrorEvent.ERROR, selectError);
 				
-				air.trace("SELECT error:"+ event.error);
-				air.trace("event.error.code:"+ event.error.code);
-				air.trace("event.error.message:"+ event.error.message);
+				//console.log("SELECT error:"+ event.error);
+				//console.log("event.error.code:"+ event.error.code);
+				//console.log("event.error.message:"+ event.error.message);
 			}
 			
 			
 			function getData()
 			{
-				air.trace("Loading data");
+				//console.log("Loading data");
 				
 				selectStmt = new air.SQLStatement();
 				selectStmt.sqlConnection = conn;
@@ -1166,7 +1335,7 @@ function CreateMenus() {
 			
 			function selectResult(event)
 			{
-				air.trace("Data loaded");
+				//console.log("Data loaded");
 				
 				selectStmt.removeEventListener(air.SQLEvent.RESULT, selectResult);
 				selectStmt.removeEventListener(air.SQLErrorEvent.ERROR, selectError);
@@ -1204,9 +1373,9 @@ function CreateMenus() {
 					for (col in result.data[i])
 					{
 						if (col == "recipieNumber"){
-								air.trace('Value of Column ID  or ITEM ID ='+ result.data[i][col]);
+								//console.log('Value of Column ID  or ITEM ID ='+ result.data[i][col]);
 								cell = document.createElement("td");
-								air.trace('IS THIS NUMBER ODD OR EVEN  '+result.data[i][col]+'  IS '+i%2);
+								//console.log('IS THIS NUMBER ODD OR EVEN  '+result.data[i][col]+'  IS '+i%2);
 								if (i%2==0) { 
 									cell.setAttribute('style', 'font-size:11px;text-align:right;padding:2px 6px;line-height:15px;background:#e6e6fa;width:100px');
 								} else { 
@@ -1234,7 +1403,7 @@ function CreateMenus() {
 					{
 						if (col == "recipieName"){
 							cell = document.createElement("td");
-							air.trace('i ='+i);
+							//console.log('i ='+i);
 							if (i%2==0) { 
 								cell.setAttribute('style', 'font-size:11px;text-align:right;padding:2px 6px;line-height:15px;background:#e6e6fa;');
 							} else { 
@@ -1253,11 +1422,11 @@ function CreateMenus() {
 					
 						for (col in result.data[i]){
 							if (col == "recipieNumber"){
-								air.trace('ABOVE FOR LOOP 6');
+								//console.log('ABOVE FOR LOOP 6');
 								var currIDHere = result.data[i][col];
-								air.trace('ADDING EVENT FOR ::: #loadButt'+currIDHere);
+								//console.log('ADDING EVENT FOR ::: #loadButt'+currIDHere);
 									$('#'+currIDHere).on("click", function(event) { 
-									air.trace('CLICKED'+$(this).attr('id'));
+									//console.log('CLICKED'+$(this).attr('id'));
 									loadNewRecipieWindow($(this).attr('id'));
 								});
 							}
@@ -1270,21 +1439,21 @@ function CreateMenus() {
 			
 			function selectError(event)
 			{
-				air.trace("Error loading data");
+				//console.log("Error loading data");
 				
 				selectStmt.removeEventListener(air.SQLEvent.RESULT, selectResult);
 				selectStmt.removeEventListener(air.SQLErrorEvent.ERROR, selectError);
 				
-				air.trace("SELECT error:"+ event.error);
-				air.trace("event.error.code:"+ event.error.code);
-				air.trace("event.error.message:"+ event.error.message);
+				//console.log("SELECT error:"+ event.error);
+				//console.log("event.error.code:"+ event.error.code);
+				//console.log("event.error.message:"+ event.error.message);
 			}
 
 
 
 			function createTable()
 			{
-				air.trace("Creating table");
+				//console.log("Creating table");
 				
 				createStmt = new air.SQLStatement();
 				
@@ -1301,7 +1470,7 @@ function CreateMenus() {
 				createStmt.addEventListener(air.SQLErrorEvent.ERROR, createError);
 				
 				createStmt.execute();
-				air.trace("DONE CREATING TABLE");
+				//console.log("DONE CREATING TABLE");
 			}
 
 			function doPrintAir() 
@@ -1332,5 +1501,5 @@ window.print = doPrintAir;
 $(document).ready(function(){
   //SetupDB();	
  	CreateMenus();
- 	
-});  
+ */	
+//});  

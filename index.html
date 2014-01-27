@@ -1,127 +1,14 @@
-<html> 
-<head> 
-    <title>E-liquid Calculator DRIPEEZ.</title> 
-    <script type="text/javascript" src="AIRIntrospector.js"></script>
-    <script type="text/javascript" src="AIRSourceViewer.js"></script>
-    <script type="text/javascript" src="AIRMenuBuilder.js"></script>
-    <script type="text/javascript" src="AIRAliases.js"></script>
-    
-   
-    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
-   
-    
-    <script type="text/javascript" src="pgvg.js"></script> 
-    <script type="text/javascript"> 
-        function appLoad(){ 
-            air.trace("E-liquid Calculator DRIPEEZ. STARTED"); 
- 
-  	}	
-    </script>
-    <style type="text/css" src="jquery-ui-1.8.17.custom.css"></style>
-    
-    <style type="text/css">body, table, tr, th, td{font-family:Verdana, Geneva, sans-serif;font-weight:normal;white-space:nowrap;margin:0px;padding:0px;border:none;background:#000000;color:#000000}
-		body{width:100%;height:100%;}
-		.tblA{width:100%;}
-		.thA{text-align:center;background:url('img/one.png') repeat-x 0px 0px;height:85px;}
-		.thz{text-align:center;padding:0px 10px 0px 60px;line-height:64px;font-weight:bold;font-size:50px;font-style:oblique;}
-		.thAp{font-style:oblique;font-weight:bold;font-size:16px;color:#eeeeee;line-height:18px;text-indent:80px;}
-		a.title:link,a.title:visited{text-decoration:none;color:#eeeeee;}
-		a.title:hover{color:#c0c0c0;}
-		#resultsGrid{
-			background-color:#ffffff;
-		}
-		#resultsGrid td{
-			background-color:#ffffff;
-			color:#000000;
-		}
-		#resultsGrid th{
-			background-color:#666666;
-			color:#000000;
-		}
-		.menuborder{font-weight:bold;font-size:12px;width:100%;border:1px solid #000000;padding:8px;}
-		.menuheader{color:#99ccff;font-size:28px;margin:0px 0px 5px 0px;}
-		.mheads{color:#99ccff;font-size:14px;margin:0px 0px 5px 0px;}
-		
-		a.menu:link,a.menu:visited,a.menu:hover{text-decoration:none;color:#eeeeee;background:#000000;display:block;}
-		a.menu:visited{color:#c0c0c0;}
-		a.menu:hover{color:#000000;background:#eeeeee;}
-		.main{width:100%;font-size:16px;text-align:center;color:#eeeeee;padding:20px 0px 0px 0px;}
-		.out{width:90%;border:10px solid #000000;}
-		.in_in,.in_b{width:100%;background-color:#99ccff;font-size:1px;line-height:15px;}
-		.in_b{width:15px;}
-		.p_iner{background:#ccccff;}
-		.in_iner{background:#99ccff;}
-		.in_tba{width:100%;font-size:20px;font-weight:bold;font-style:oblique;line-height:22px;background:#99ccff;text-align:center;}
-		.tbcal{width:100%;background:#eeeeee;border-width:0px 10px;border-color:#ccccff;border-style:none solid;}
-		a.new:link{color:#eeeeee;}
-		a.new:visited{color:#c0c0c0;}
-		a.new:hover{color:#ffffff;}
-		.links{font-size:13px;line-height:14px;font-weight:bold;;margin:1px;color:#eeeeee;}
-		a.links:link{color:#eeeeee;}
-		a.links:visited{color:#c0c0c0;}
-		a.links:hover{color:#ffffff;}
-		a.warning:link{color:#ff0000;}
-		a.warning:visited{color:#ff0000;}
-		a.warning:hover{color:#0000ff;}
-		.tblC_tdA{text-align:center;font-size:12px;color:#eeeeee;}
-		.tbcal_thead,.ead{font-size:18px;text-align:center;font-weight:bold;font-style:oblique;line-height:20px;background:#eeeeee;}
-		.ead{background:#ccccff;}
-		.tbcal_tdA,.pcal_tdA{font-size:11px;background:#eeeeee;text-align:left;padding:1px 5px 1px 0px;}
-		.pcal_tdA{background:#e6e6fa;}
-		.apcal_tdA,.bpcal_tdA{font-size:11px;background:#eeeeee;text-align:left;padding:1px 0px 1px 10px;border-width:1px;border-color:#ccccff;border-style:none solid none none;}
-		.bpcal_tdA{text-align:center;padding:0px 0px;border-style:none solid solid solid;}
-		.l_tdA,.p_tdA{font-size:11px;background:#eeeeee;text-align:left;padding:1px 2px 1px 5px;}
-		.p_tdA{background:#e6e6fa;}
-		.tbcal_tdpg,.pcal_tdpg,.tbcal_pg{font-size:9px;background:#eeeeee;text-align:left;padding:1px 0px 1px 10px;}
-		.pcal_tdpg{background:#e6e6fa;}
-		.tbcal_pg{text-align:center;padding:0px 0px;}
-		.tbcal_tds,.pcal_tds{font-size:11px;background:#eeeeee;text-align:center;line-height:13px;}
-		.pcal_tds{background:#e6e6fa;}
-		.intable{width:100%;background:#ccccff;}
-		.fAbt,.fAAbt{font-size:11px;font-weight:bold;text-align:left;padding:2px 6px;line-height:15px;background:#e6e6fa;}
-		.fAAbt{text-align:right;}
-		.fAb,.sAb{font-size:11px;text-align:left;padding:2px 6px;line-height:15px;background:#e6e6fa;}
-		.sAb{background:#eeeeee;}
-		.fAAbr,.sAAbr{font-size:11px;text-align:right;padding:2px 6px;line-height:15px;background:#e6e6fa;}
-		.sAAbr{background:#eeeeee;}
-		.fdrp,.sdrp{font-size:11px;color:#0099ff;text-align:left;padding:2px 0px;line-height:15px;background:#e6e6fa;}
-		.sdrp{background:#eeeeee;}
-		.fml,.sml{font-size:11px;color:#cc66ff;text-align:left;padding:2px 0px;line-height:15px;background:#e6e6fa;}
-		.sml{background:#eeeeee;}
-		.c_Abt{font-size:11px;font-weight:bold;text-align:center;padding:2px 10px;line-height:15px;background:#eeeeee;}
-		.tdza{font-size:11px;font-weight:bold;background-color:#eeeeee;text-align:left;padding:1px 0px 1px 15px;}
-		.ass{font-size:11px;background:#ffffff;text-align:center;border:1px inset #e6e6fa;line-height:13px;}
-		.sl{font-size:11px;background:#ffffff;text-align:left;border:1px inset #f5f5f5;line-height:13px;padding:1px 3px;}
-		.tbcal_tdsss{font-size:12px;font-weight:bold;background:#ffffff;text-align:center;border:1px inset #f5f5f5;line-height:13px;}
-		.enter{font-size:12px;font-weight:bold;background:#eeeeee;text-align:center;border:3px outset #ccccff;padding:1px 1px;line-height:14px;}
-		.div{font-size:13px;font-weight:bold;color:#cc99ff;text-align:left;line-height:13px;}
-		.warn{font-size:11px;background:#ccccff;text-align:center;line-height:20px;}
-		.fade_a, .fade_b{text-align:center;font-style:italic;font-weight:bold;font-size:20px;background:#99ccff url('img/one.png') repeat-x 0px -105px;height:30px;}
-		.fade_b{font-size:18px;background:#e6e6fa url('img/one.png') repeat-x 0px -135px;height:25px;}
-		
-		.fade_c{text-align:center;background:#99ccff url('img/one.png') repeat-x 0px -85px;height:20px;}
-		.fade_m{text-align:left;font-size:11px;padding:1px 2px 1px 5px;background:#e6e6fa url('img/one.png') repeat-x 0px -160px;height:23px;}
-		.fade_e{text-align:center;font-size:11px;font-weight:bold;padding:2px 0px;background:#ccccff url('img/one.png') repeat-x 0px -185px;height:16px;}
-		.fad_p{font-size:9px;line-height:0px;}
-		
-		.book{font-size:14px;color:#ff0000;text-align:center;font-weight:bold;background:#ccccff url('img/one.png') repeat-x 0px -160px;height:25px;}
-		.inone,.intwo{font-size:13px;padding:0px 0px;background:#ccccff;color:#ff0000;text-align:center;font-weight:bold;}
-		.intwo{color:#0000ff;}
-		.lr_blink{font-size:14px;padding:0px 10px;background:#ccccff;color:#ff0000;text-decoration:blink;text-align:center;font-weight:bold;}
-		.amounta,.amountb{font-size:18px;padding:0px 0px;background:#ccccff;color:#ff0000;text-align:center;font-weight:bold;}
-		.amountb{color:#0000ff;}
-		img.top_l, img.top_r, img.bot_l, img.bot_r, img.vhtml, img.vcss, img.vdot{background: url('img/master.png') no-repeat 0px 0px;width:15px;height:15px;}
-		img.top_r{background-position: -16px 0px;}
-		img.bot_l{background-position: -32px 0px;}
-		img.bot_r{background-position: -48px 0px;}
-		img.vhtml{background-position: 0px -15px;width:88px;height:31px;}
-		img.vcss{background-position: 0px -46px;width:88px;height:31px;}
-		img.vdot{background-position: -64px 0px;width:4px;height:4px;}
-</style> 
-</head> 
-<body onLoad="init();appLoad();">
-	
-    <table summary="DIY E-Liquid (E-Juice) Recipe Mixing Calculator With PG/VG Percent Adjusting" cellspacing="0" class="out">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="pgvg.js"></script>
+     <link rel="stylesheet" href="main.css"> 
+    <title>DRIPEEZ E-LIQUID CALCULATOR</title>	
+</head>
+<body>
+        <table summary="DIY E-Liquid (E-Juice) Recipe Mixing Calculator With PG/VG Percent Adjusting" cellspacing="0" class="out">
 		<tr>
 			<td></td>
 			<td></td>
@@ -132,10 +19,10 @@
 			<td>
 				<table summary="DIY E-Liquid (E-Juice) Recipe Mixing Calculator With PG/VG Percent Adjusting" cellspacing="0" class="tblA">
 					<tr>
-						<td class="in_b" valign="top"><img class="top_l" src="img/trans.gif" height="15" width="15" alt="rounded corner"></td>
+						<td class="in_b" valign="top"></td>
 						<td class="in_in" valign="top"></td>
 						<td class="in_b" valign="top">
-							<img class=top_r src="img/trans.gif" height="15" width="15" alt="rounded corner">
+							
 						</td>
 					</tr>
 					<tr>
@@ -151,10 +38,11 @@
 				</table>
 				<table summary="DIY E-Liquid (E-Juice) Recipe Mixing Calculator With PG/VG Percent Adjusting" class="tblA" cellspacing="0">
 					<tr>
-						<td class=in_tba>DRIPEEZ E-Liquid Recipe Mixing Calculator</td>
+						<td class="in_tba">DRIPEEZ E-Liquid Recipe Mixing Calculator</td>
 					</tr>
-					<tr><td class=fade_a>With PG/VG Percent Adjusting</td></tr>
+					<tr><td class="fade_a">With PG/VG Percent Adjusting</td></tr>
 				</table>
+				<form id="dripeezForm">
 				<table summary="DIY E-Liquid (E-Juice) Recipe Mixing Calculator With PG/VG Percent Adjusting" class="tbcal" cellspacing="0">
 					<!--
 					<tr>
@@ -168,12 +56,12 @@
 							<a name="anc">Enter Your Flavors and Amounts:</a>
 						</td>
 						<td class="fade_b">
-							<input type="button" value="Print this page" onclick="window.print();" class="enter">
+							<input type="button" value="Print this page"  class="enter">
 						</td>
 					</tr>
 					<tr>
 						<td class="l_tdA" colspan="2">
-							<input name="sfx" size="28" maxlength="40" value="E-Liquid Recipe Name" class="tbcal_tdsss" id="rec" onkeyup="rec_x(rec,table_b)">
+							<input name="sfx" size="28" maxlength="40" value="E-Liquid Recipe Name" class="tbcal_tdsss" id="rec">
 						</td>
 						<td class="tdza">PG% / VG%</td>
 						<td colspan="2" class="tbcal_thead"> Cost Calculator:</td>
@@ -182,155 +70,155 @@
 					<tr>
 						<td class="p_tdA">Base Nicotine + PG%</td>
 						<td class="pcal_tdA">
-							<input name="ai" size="3" maxlength="5" value="100" class="ass" id="a_one" onkeyup="fix_one(a_one,table_b)">mg&nbsp;&nbsp;+
+							<input name="ai" size="3" maxlength="5" value="100" class="ass" id="a_one">mg&nbsp;&nbsp;+
 						</td>
-						<td class="pcal_tdpg" onmouseover="pga(aa,ab)">
-							<input name="np" size="5" maxlength="5" value="0" class="ass" id="aa" onkeyup="pga_rec(aa,ab,table_b)">% <span id="ab" class="pcal_tds">100%</span>
+						<td class="pcal_tdpg">
+							<input name="np" size="5" maxlength="5" value="0" class="ass" id="aa">% <span id="ab" class="pcal_tds">100%</span>
 						</td>
 						<td class="pcal_tdA"><span class="div">|</span> Nicotine E-Liquid</td>
 						<td class="pcal_tdA">
-							$<input name="ci" size="3" maxlength="6" value="65.00" class="ass" id="a_mon" onkeyup="money_a(a_mon,table_b)"> for 
-							<input name="di" size="5" maxlength="5" value="120" class="ass" id="a_ml" onkeyup="mil_a(a_ml,table_b)">ml
+							$<input name="ci" size="3" maxlength="6" value="65.00" class="ass" id="a_mon"> for 
+							<input name="di" size="5" maxlength="5" value="120" class="ass" id="a_ml">ml
 						</td>
 					</tr>
 					<tr>
 						<td class="l_tdA"><span id="amount_nic">Target Nicotine + PG%</span></td>
-						<td class="tbcal_tdA" onkeyup="chk_nic(a_two,amount_nic,nic_ha,nic_ha_l,nic_ha_r,nic_hb)">
-							<input name="bi" size="3" maxlength="5" value="18" class="ass" id="a_two" onkeyup="fix_two(a_two,table_b)">mg&nbsp;&nbsp;+
+						<td class="tbcal_tdA">
+							<input name="bi" size="3" maxlength="5" value="18" class="ass" id="a_two">mg&nbsp;&nbsp;+
 						</td>
-						<td class="apcal_tdA" onmouseover="pgb(ba,bb,a,pg_w_ad)">
-							<input name="tp" size="5" maxlength="4" value="65" class="ass" id="ba" onkeyup="pgb_rec(ba,bb,a,pg_w_ad,table_b)">% <span id="bb" class="cal_tdpg">50</span>%
+						<td class="apcal_tdA">
+							<input name="tp" size="5" maxlength="4" value="65" class="ass" id="ba">% <span id="bb" class="cal_tdpg">50</span>%
 						</td>
 						<td class="tbcal_tdA"><span class="div">|</span> PG</td>
-						<td class="tbcal_tdA">$<input name="fi" size="3" maxlength="6" value="9.00" class="ass" id="b_mon" onkeyup="money_b(b_mon,table_b)"> for <input name="gi" size="5" maxlength="9" value="3785.41178" class="ass" id="b_ml" onkeyup="mil_b(b_ml,table_b)">ml</td>
+						<td class="tbcal_tdA">$<input name="fi" size="3" maxlength="6" value="9.00" class="ass" id="b_mon"> for <input name="gi" size="5" maxlength="9" value="3785.41178" class="ass" id="b_ml">ml</td>
 					</tr>
 					<tr>
 						<td class="p_tdA"><span id="amount_make">Amount To Make</span></td>
-						<td class="pcal_tdA" onkeyup="chk_amount(a_three,amount_make,inonea,intwoa,inonear,inoneal)">
-							<input name="ei" size="3" maxlength="6" value="30" class="ass" id="a_three" onkeyup="fix_three(a_three,table_b)">ml
+						<td class="pcal_tdA">
+							<input name="ei" size="3" maxlength="6" value="30" class="ass" id="a_three">ml
 						</td>
-						<td class="bpcal_tdA" rowspan="2" onmouseover="pgb(ba,bb,a,pg_w_ad)">
+						<td class="bpcal_tdA" rowspan="2">
 							<span id="pg_w_ad" class="tbcal_pg">47.5%PG 47.5%VG<br>5%</span>
 							<div class="tbcal_pg" id="fl_azx">Water/Alcohol/PGA</div>
 						</td>
 						<td class="pcal_tdA"><span class=div>|</span> VG</td>
 						<td class="pcal_tdA">$
-							<input name="fil" size="3" maxlength="6" value="9.00" class="ass" id="c_mon" onkeyup="money_c(c_mon,table_b)"> for 
-							<input name="gil" size="5" maxlength="9" value=" 3785.41178" class="ass" id="c_ml" onkeyup="mil_c(c_ml,table_b)">ml
+							<input name="fil" size="3" maxlength="6" value="9.00" class="ass" id="c_mon"> for 
+							<input name="gil" size="5" maxlength="9" value=" 3785.41178" class="ass" id="c_ml">ml
 						</td>
 					</tr>
 					<tr>
-						<td class="l_tdA" onkeyup="add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a)">
-							<input name="hi" size="20" maxlength="25" value="Water/Alcohol/PGA" class="sl" id="fl_a" onkeyup="flavor_a(fl_a,fl_az,fl_azx,table_b)">
+						<td class="l_tdA">
+							<input name="hi" size="20" maxlength="25" value="Water/Alcohol/PGA" class="sl" id="fl_a">
 						</td>
-						<td class="tbcal_tdA" onkeyup="pgb(ba,bb,a,pg_w_ad)">
-							<input name="ii" size="3" maxlength="5" value="5" id="a" onkeyup="add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a)" class="ass">%
+						<td class="tbcal_tdA" >
+							<input name="ii" size="3" maxlength="5" value="5" id="a" class="ass">%
 						</td>
 						<td class="tbcal_tdA">
 							<span class="div">|</span><span id="fl_az">Water/Alcohol/PGA</span>
 						</td>
 						<td class="tbcal_tdA">
-							$<input name="ji" size="3" maxlength="6" value="0.00" class=ass id=d_mon onkeyup="money_d(d_mon,table_b)">
-							 for <input name="ki" size="5" maxlength="5" value="0" class="ass" id="d_ml" onkeyup="mil_d(d_ml,table_b)">ml
+							$<input name="ji" size="3" maxlength="6" value="0.00" class="ass" id="d_mon">
+							 for <input name="ki" size="5" maxlength="5" value="0" class="ass" id="d_ml">ml
 						</td>
 					</tr>
 					<tr>
 						<td class="p_tdA">
-							<input name="li" size="20" maxlength="25" value="Flavor 1" class="sl" id="fl_b" onkeyup="flavor_b(fl_b,fl_bz,table_b)">
+							<input name="li" size="20" maxlength="25" value="Flavor 1" class="sl" id="fl_b">
 						</td>
 						<td class="pcal_tdA">
-							<input name="mi" size="3" maxlength="5" value="2" id="b" onkeyup="add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a)" class="ass">%&nbsp;&nbsp;&nbsp;+
+							<input name="mi" size="3" maxlength="5" value="2" id="b" class="ass">%&nbsp;&nbsp;&nbsp;+
 						</td>
-						<td class="pcal_tdpg" onmouseover="pgc(ca,cb)">
-							<input name="bp" size="2" maxlength="4" value="50" class="ass" id="ca" onkeyup="pgc_rec(ca,cb,table_b)">% <span id="cb" class="pcal_tds">50%</span>
+						<td class="pcal_tdpg">
+							<input name="bp" size="2" maxlength="4" value="50" class="ass" id="ca">% <span id="cb" class="pcal_tds">50%</span>
 						</td>
 						<td class="pcal_tdA"><span class="div">|</span><span id="fl_bz">Flavor 1</span></td>
 						<td class="pcal_tdA">
-							$<input name="ni" size="3" maxlength="6" value="5.96" class="ass" id="e_mon" onkeyup="money_e(e_mon,table_b)"> for 
-							<input name="oi" size="2" maxlength="5" value="5" class="ass" id=e_ml onkeyup="mil_e(e_ml,table_b)">ml
+							$<input name="ni" size="3" maxlength="6" value="5.96" class="ass" id="e_mon"> for 
+							<input name="oi" size="2" maxlength="5" value="5" class="ass" id="e_ml">ml
 						</td>
 					</tr>
 					<tr>
 						<td class="l_tdA">
-							<input name="pi" size="20" maxlength="25" value="Flavor 2" class="sl" id="fl_c" onkeyup="flavor_c(fl_c,fl_cz,table_b)">
+							<input name="pi" size="20" maxlength="25" value="Flavor 2" class="sl" id="fl_c">
 						</td>
 						<td class="tbcal_tdA">
-							<input name="qi" size="3" maxlength="5" value="0" id="c" onkeyup="add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a)" class="ass">%&nbsp;&nbsp;&nbsp;+
+							<input name="qi" size="3" maxlength="5" value="0" id="c" class="ass">%&nbsp;&nbsp;&nbsp;+
 						</td>
-						<td class="tbcal_tdpg" onmouseover="pgd(da,db)">
-							<input name="cp" size="2" maxlength="4" value="50" class="ass" id="da" onkeyup="pgd_rec(da,db,table_b)">% <span id="db" class="tbcal_tds">50%</span>
+						<td class="tbcal_tdpg">
+							<input name="cp" size="2" maxlength="4" value="50" class="ass" id="da">% <span id="db" class="tbcal_tds">50%</span>
 						</td>
 						<td class="tbcal_tdA">
 							<span class="div">|</span><span id="fl_cz">Flavor 2</span>
 						</td>
 						<td class="tbcal_tdA">
-							$<input name="ri" size="3" maxlength="6" value="0.00" class="ass" id="f_mon" onkeyup="money_f(f_mon,table_b)"> 
-							for <input name="si" size="2" maxlength="5" value="0" class="ass" id="f_ml"" onkeyup="mil_f(f_ml,table_b)">ml
+							$<input name="ri" size="3" maxlength="6" value="0.00" class="ass" id="f_mon"> 
+							for <input name="si" size="2" maxlength="5" value="0" class="ass" id="f_ml">ml
 						</td>
 					</tr>
 					<tr>
 						<td class="p_tdA">
-							<input name="ti" size="20" maxlength="25" value="Flavor 3" class="sl" id="fl_d" onkeyup="flavor_d(fl_d,fl_dz,table_b)">
+							<input name="ti" size="20" maxlength="25" value="Flavor 3" class="sl" id="fl_d">
 						</td>
 					<td class="pcal_tdA">
-						<input name="ui" size="3" maxlength="5" value="0" id="d" onkeyup="add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a)" class="ass">%&nbsp;&nbsp;&nbsp;+
+						<input name="ui" size="3" maxlength="5" value="0" id="d" class="ass">%&nbsp;&nbsp;&nbsp;+
 					</td>
-					<td class="pcal_tdpg" onmouseover="pge(ea,eb)">
-						<input name="dp" size="2" maxlength="4" value="50" class="ass" id="ea" onkeyup="pge_rec(ea,eb,table_b)">% <span id="eb" class="pcal_tds">50%</span>
+					<td class="pcal_tdpg">
+						<input name="dp" size="2" maxlength="4" value="50" class="ass" id="ea">% <span id="eb" class="pcal_tds">50%</span>
 					</td>
 					<td class="pcal_tdA">
 						<span class="div">|</span>
-						<span id=fl_dz>Flavor 3</span>
+						<span id="fl_dz">Flavor 3</span>
 					</td>
 					<td class="pcal_tdA">
-						$<input name="vi" size="3" maxlength="6" value="0.00" class="ass" id="g_mon" onkeyup="money_g(g_mon,table_b)">
-						 for <input name="wi" size="2" maxlength="5" value="0" class="ass" id="g_ml" onkeyup="mil_g(g_ml,table_b)">ml
+						$<input name="vi" size="3" maxlength="6" value="0.00" class="ass" id="g_mon">
+						 for <input name="wi" size="2" maxlength="5" value="0" class="ass" id="g_ml">ml
 					</td>
 				</tr>
 				<tr>
 					<td class="l_tdA">
-						<input name="xi" size="20" maxlength="25" value="Flavor 4" class="sl" id="fl_e" onkeyup="flavor_e(fl_e,fl_ez,table_b)">
+						<input name="xi" size="20" maxlength="25" value="Flavor 4" class="sl" id="fl_e">
 					</td>
 					<td class="tbcal_tdA">
-						<input name="yi" size="3" maxlength="5" value="0" id=e onkeyup="add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a)" class="ass">%&nbsp;&nbsp;&nbsp;+
+						<input name="yi" size="3" maxlength="5" value="0" id="e" class="ass">%&nbsp;&nbsp;&nbsp;+
 					</td>
-					<td class="tbcal_tdpg" onmouseover="pgf(fa,fb)">
-						<input name="ep" size="2" maxlength="4" value="50" class="ass" id="fa" onkeyup="pgfx_rec(fa,fb,table_b)">% <span id="fb" class="tbcal_tds">50%</span>
+					<td class="tbcal_tdpg">
+						<input name="ep" size="2" maxlength="4" value="50" class="ass" id="fa">% <span id="fb" class="tbcal_tds">50%</span>
 					</td>
 					<td class="tbcal_tdA"><span class="div">|</span><span id="fl_ez">Flavor 4</span></td>
 					<td class="tbcal_tdA">
-						$<input name="zi" size="3" maxlength="6" value="0.00" class="ass" id="h_mon" onkeyup="money_h(h_mon,table_b)">
-						 for <input name="al" size="2" maxlength="5" value="0" class="ass" id="h_ml" onkeyup="mil_h(h_ml,table_b)">ml
+						$<input name="zi" size="3" maxlength="6" value="0.00" class="ass" id="h_mon">
+						 for <input name="al" size="2" maxlength="5" value="0" class="ass" id="h_ml">ml
 					</td>
 				</tr>
 
 				<tr>
 					<td class="p_tdA">
-						<input name="bl" size="20" maxlength="25" value="Flavor 5" class="sl" id="fl_f" onkeyup="flavor_f(fl_f,fl_fz,table_b)">
+						<input name="bl" size="20" maxlength="25" value="Flavor 5" class="sl" id="fl_f">
 					</td>
 					<td class="pcal_tdA">
-						<input name="cl" size="3" maxlength="5" value="0" id="f" onkeyup="add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a)" class="ass">%&nbsp;&nbsp;&nbsp;+
+						<input name="cl" size="3" maxlength="5" value="0" id="f" class="ass">%&nbsp;&nbsp;&nbsp;+
 					</td>
-					<td class="pcal_tdpg" onmouseover="pgg(ga,gb)">
-						<input name="fp" size="2" maxlength="4" value="50" class="ass" id="ga" onkeyup="pgg_rec(ga,gb,table_b)">% <span id="gb" class="pcal_tds">50%</span>
+					<td class="pcal_tdpg">
+						<input name="fp" size="2" maxlength="4" value="50" class="ass" id="ga">% <span id="gb" class="pcal_tds">50%</span>
 					</td>
 					<td class="pcal_tdA">
 						<span class="div">|</span><span id="fl_fz">Flavor 5</span>
 					</td>
 					<td class="pcal_tdA">
-						$<input name="dl" size="3" maxlength="6" value="0.00" class="ass" id="i_mon" onkeyup="money_i(i_mon,table_b)"> 
-						for <input name=el size=2 maxlength=5 value="0" class=ass id=i_ml onkeyup="mil_i(i_ml,table_b)">ml
+						$<input name="dl" size="3" maxlength="6" value="0.00" class="ass" id="i_mon"> 
+						for <input name="el" size="2" maxlength="5" value="0" class=ass id="i_ml">ml
 					</td>
 				</tr>
 				<tr>
 					<td class="l_tdA">
-						<input name="fl" size="20" maxlength="25" value="Flavor 6" class="sl" id="fl_g" onkeyup="flavor_g(fl_g,fl_gz,table_b)">
+						<input name="fl" size="20" maxlength="25" value="Flavor 6" class="sl" id="fl_g">
 					</td>
 					<td class="tbcal_tdA">
-						<input name="gl" size="3" maxlength="5" value="0" id="g" onkeyup="add(a,b,c,d,e,f,g,tota,totb,toar,toal,table_b,fl_a)" class="ass">%&nbsp;&nbsp;&nbsp;+
+						<input name="gl" size="3" maxlength="5" value="0" id="g" class="ass">%&nbsp;&nbsp;&nbsp;+
 					</td>
-					<td class="tbcal_tdpg" onmouseover="pgh(ha,hb)">
-						<input name="gp" size="2" maxlength="4" value="50" class="ass" id="ha" onkeyup="pgh_rec(ha,hb,table_b)">
+					<td class="tbcal_tdpg">
+						<input name="gp" size="2" maxlength="4" value="50" class="ass" id="ha">
 						% <span id="hb" class="tbcal_tds">50%</span>
 					</td>
 					<td class="tbcal_tdA">
@@ -338,16 +226,16 @@
 						<span id="fl_gz">Flavor 6</span>
 					</td>
 					<td class="tbcal_tdA">
-						$<input name="hl" size="3" maxlength="6" value="0.00" class="ass" id="j_mon" onkeyup="money_j(j_mon,table_b)"> 
-						for <input name="il" size="2" maxlength="5" value="0" class="ass" id="j_ml" onkeyup="mil_j(j_ml,table_b)">ml
+						$<input name="hl" size="3" maxlength="6" value="0.00" class="ass" id="j_mon"> 
+						for <input name="il" size="2" maxlength="5" value="0" class="ass" id="j_ml">ml
 					</td>
 				</tr>
 				<tr>
 					<td class="fade_m">
-						Aprox. <input name="jl" size="1" maxlength="3" value="20" class="ass" id="drp" onkeyup="drops(drp,table_b)"> Drops ml
+						Aprox. <input name="jl" size="1" maxlength="3" value="20" class="ass" id="drp"> Drops ml
 					</td>
 					<td class="fade_m" colspan="4">
-						<input name="kl" size="80" maxlength="100" value="Note:" class="sl" id="note" onkeyup="notes(note,table_b)">
+						<input name="kl" size="80" maxlength="100" value="Note:" class="sl" id="note">
 					</td>
 				</tr>
 				<tr>
@@ -355,11 +243,12 @@
 						Resulting Recipe:
 					</td>
 					<td class="ead">
-						<input type="submit" name="submit" onclick="doFormMath()"  value="* Calculate *" class="enter">
+						<input type="button" id="totSubButt" value="* Calculate *" class="enter">
 					</td>
 					<td class="ead" colspan="2">Resulting Cost:</td>
 				</tr>
 			</table>
+		</form>
 			<table summary="E-Liquid Calculator Error''s" cellspacing="0" class="intable">
 				<tr>
 					<td class="lr_blink"><span id="inoneal"></span></td>
@@ -390,7 +279,7 @@
 				<tr>
 					<td class="p_iner">
 						<div id="table_b">
-							<table summary="E-Liquid Calculator Error's" cellspacing="0" class="intable">
+							<table summary="E-Liquid Calculator Errors" cellspacing="0" class="intable">
 								<tr>
 									<td class="lr_blink"><span></span></td>
 									<td class="inone"><span></span></td>
@@ -508,7 +397,7 @@
 								<!--<tr><td colspan="6" class="book">Bookmark This Page To Save Your Recipe!</td></tr>-->
 							</table>
 							
-							<table class="tbcal"><tr><td class="c_Abt"><h1>current recipies SAVED</h1><input type="button" value="refresh saved files" onclick="getData()" /></td></tr></table>
+							<table class="tbcal"><tr><td class="c_Abt"><h1>current recipies SAVED</h1><input type="button" value="refresh saved files"  /></td></tr></table>
 	
 	<table id="resultsGrid" class="tbcal" cellpadding="0">
 		<tr><td>NOTHING SAVED</td></tr>
@@ -522,14 +411,14 @@
 			<table summary="Copyright" class="tblA" cellspacing="0">
 				<tr>
 					<td class="fade_c">
-						<p class="fad_p">Copyright &#169; 2010 - 2012 <img class="vdot" src="img/trans.gif" height="4" width="4" alt="dot"> Booker T. Marina <img class=vdot src="img/trans.gif" height="4" width="4" alt="dot"> www.dripeez.com <img class="vdot" src="img/trans.gif" height="4" width="4" alt="dot"> All rights reserved.</p>
+						<p class="fad_p">Copyright &#169; 2010 - 2014 Booker T. Marina - www.dripeez.com  All rights reserved.</p>
 					</td>
 				</tr>
 			</table>
 			<table summary="DIY E-Liquid (E-Juice) Recipe Mixing Calculator With PG/VG Percent Adjusting" class="tblA" cellspacing="0">
 				<tr><td class="in_b" valign="top"></td><td class="in_in" valign="top"></td><td class="in_b" valign="top"></td></tr>
 				<tr><td class="in_iner"></td><td class="in_iner"></td><td class="in_iner" valign="top"></td></tr>
-				<tr><td class="in_b" valign="top"><img class="bot_l" src="img/trans.gif" height="15" width="15" alt="rounded corner"></td><td class="in_in" valign="top"></td><td class="in_b" valign="top"><img class="bot_r" src="img/trans.gif" height="15" width="15" alt="rounded corner"></td></tr>
+				<tr><td class="in_b" valign="top"></td><td class="in_in" valign="top"></td><td class="in_b" valign="top"></td></tr>
 			</table>
 		</td>
 	<td></td>
@@ -538,4 +427,5 @@
 </table>
  
 </body> 
+</body>
 </html>
